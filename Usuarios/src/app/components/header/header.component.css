@@ -1,0 +1,17 @@
+
+.cabecalho{
+    width: 100%;
+    height: 15vh;
+    background-color: #37a1f0;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.titulo{
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    font-size: 2.5em;
+    margin-left: 5%;
+}

@@ -1,0 +1,13 @@
+.rodape{
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    background-color: #022144 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.direitos{
+    color: #ffffff;
+}

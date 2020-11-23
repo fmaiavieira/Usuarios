@@ -1,0 +1,26 @@
+<app-header></app-header>
+<section class="listarUsuarios">
+    <h2 class="tituloListagem">Listagem de Usuarios</h2>
+
+    <div *ngFor="let dado of usuarios; let index = index" class="usuarios">
+        <div class="usuario">
+            <div class="nomeEEmail">
+                <span>Nome de usuario: {{dado.username}}</span>
+                <span>Email: {{dado.email}}</span>
+            </div>
+            <button (click)="mostrarDetalhes(index, dado)" class="botaoDetalhes">Detalhes</button>
+        </div>
+        <div *ngIf="usuarioSelecionado === index" class="detalhes">
+            <div class="dadosDoUsuario">
+                <span>Nome completo: {{dado.name}}</span>
+                <span>Telefone: {{dado.phone}}</span>
+                <span>Site: {{dado.website}}</span>
+                <span>Nome da empresa: {{dado.company.name}}</span>
+            </div>
+            <agm-map [latitude]="latitude" [longitude]="longitude">
+                <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+            </agm-map>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>
