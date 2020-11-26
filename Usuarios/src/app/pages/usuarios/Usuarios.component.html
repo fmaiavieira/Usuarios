@@ -1,21 +1,64 @@
 <app-header></app-header>
-<section class="listarUsuarios">
+<section *ngIf="pagina" class="listarUsuarios">
     <h2 class="tituloListagem">Listagem de Usuarios</h2>
-
+    <div *ngIf="!usuarioLogado">
+        <button class="botaoMudar" (click)="mudarPaginaFavoritos()">Favoritos</button>
+    </div>
     <div *ngFor="let dado of usuarios; let index = index" class="usuarios">
         <div class="usuario">
             <div class="nomeEEmail">
-                <span>Nome de usuario: {{dado.username}}</span>
-                <span>Email: {{dado.email}}</span>
+                <span><span class="textoEmNegrito">Nome de usuário:</span> {{dado.username}}</span>
+                <span><span class="textoEmNegrito">E-mail:</span> {{dado.email}}</span>
             </div>
-            <button (click)="mostrarDetalhes(index, dado)" class="botaoDetalhes">Detalhes</button>
+            <div class="acoes">
+                <button (click)="mostrarDetalhes(index, dado)" class="botaoDetalhes">Detalhes</button>
+                <div *ngIf="!usuarioLogado">
+                    <img *ngIf="estaFavoritado(dado)" (click)="favoritar(dado)" src="../../../assets/estrelaTransparente.ico" class="estrelas" />
+                    <img *ngIf="!estaFavoritado(dado)" (click)="favoritar(dado)" src="../../../assets/estrelaAmarela.ico" class="estrelas"/>
+                </div>
+            </div>
+            
         </div>
         <div *ngIf="usuarioSelecionado === index" class="detalhes">
             <div class="dadosDoUsuario">
-                <span>Nome completo: {{dado.name}}</span>
-                <span>Telefone: {{dado.phone}}</span>
-                <span>Site: {{dado.website}}</span>
-                <span>Nome da empresa: {{dado.company.name}}</span>
+                <span><span class="textoEmNegrito">Nome completo:</span> {{dado.name}}</span>
+                <span><span class="textoEmNegrito">Telefone:</span> {{dado.phone}}</span>
+                <span><span class="textoEmNegrito">Site:</span> {{dado.website}}</span>
+                <span><span class="textoEmNegrito">Nome da empresa:</span> {{dado.company.name}}</span>
+            </div>
+            <agm-map [latitude]="latitude" [longitude]="longitude">
+                <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+            </agm-map>
+        </div>
+    </div>
+</section>
+<section *ngIf="!pagina" class="listarUsuarios">
+    <h2 class="tituloListagem">Listagem de Usuarios</h2>
+    <div >
+        <button class="botaoMudar" (click)="mudarPaginaUsuarios()">Usuarios</button>
+        
+    </div>
+    <div *ngFor="let dado of usuariosFavoritos; let index = index" class="usuarios">
+        <div class="usuario">
+            <div class="nomeEEmail">
+                <span><span class="textoEmNegrito">Nome de usuário:</span> {{dado.username}}</span>
+                <span><span class="textoEmNegrito">E-mail:</span> {{dado.email}}</span>
+            </div>
+            <div class="acoes">
+                <button (click)="mostrarDetalhes(index, dado)" class="botaoDetalhes">Detalhes</button>
+                <div *ngIf="!usuarioLogado">
+                    <img *ngIf="estaFavoritado(dado)" (click)="favoritar(dado)" src="../../../assets/estrelaTransparente.ico" class="estrelas" />
+                    <img *ngIf="!estaFavoritado(dado)" (click)="favoritar(dado)" src="../../../assets/estrelaAmarela.ico" class="estrelas"/>
+                </div>
+            </div>
+            
+        </div>
+        <div *ngIf="usuarioSelecionado === index" class="detalhes">
+            <div class="dadosDoUsuario">
+                <span><span class="textoEmNegrito">Nome completo:</span> {{dado.name}}</span>
+                <span><span class="textoEmNegrito">Telefone:</span> {{dado.phone}}</span>
+                <span><span class="textoEmNegrito">Site:</span> {{dado.website}}</span>
+                <span><span class="textoEmNegrito">Nome da empresa:</span> {{dado.company.name}}</span>
             </div>
             <agm-map [latitude]="latitude" [longitude]="longitude">
                 <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>

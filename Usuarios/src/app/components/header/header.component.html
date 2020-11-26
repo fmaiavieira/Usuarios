@@ -1,3 +1,5 @@
 <div class="cabecalho">
     <span class="titulo">My User</span>
+    <app-login *ngIf="mostrarLogin"></app-login>
+    <button (click)="sair()" *ngIf="!mostrarLogin" class="sair">sair</button>
 </div>

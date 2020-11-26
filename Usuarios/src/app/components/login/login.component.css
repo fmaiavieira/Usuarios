@@ -1,0 +1,38 @@
+.login{
+    display: flex;
+    flex-direction: row;
+    color: #ffffff;
+    font-family: 'Rubik', sans-serif;
+    justify-content: space-around;
+    min-width: 600px;
+}
+
+.entrar{
+    background-color: #2d2b2b;
+    border: none;
+    border-radius:5px ;
+    color: #ffffff;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    cursor: pointer;
+    outline: none;
+}
+
+@media (max-width:900px){
+
+   .login{
+       flex-direction: column;
+       max-width: 300px;
+       min-width: 0px;
+   }
+}
+
+@media (max-width:400px){
+
+    .login{
+        flex-direction: column;
+        max-width: 100px;
+        min-width: 0px;
+    }
+ }

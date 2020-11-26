@@ -2,10 +2,11 @@
 .cabecalho{
     width: 100%;
     height: 15vh;
-    background-color: #37a1f0;
+    min-height: 150px;
+    background-color: #2d2b2b;
     display: flex;
     align-items: center;
-    justify-content: left;
+    justify-content: space-between;
 }
 
 .titulo{
@@ -14,4 +15,25 @@
     font-weight: bold;
     font-size: 2.5em;
     margin-left: 5%;
+}
+
+.sair{
+    background-color: #2d2b2b;
+    border: none;
+    border-radius:5px ;
+    color: #ffffff;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    cursor: pointer;
+    outline: none;
+    margin-right:3% ;
+}
+
+
+@media (max-width:440px){
+    .titulo{
+        font-size: 2.0em;   
+    }
+ 
 }
