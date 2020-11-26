@@ -46,7 +46,7 @@ export class UsuariosComponent implements OnInit {
 // valores de latitude e longitude de cada usuario.
   mostrarDetalhes(index:number, dado:any) {
     this.latitude = Number.parseFloat(dado.address.geo.lat);
-    this.longitude = Number.parseFloat(dado.address.geo.lgn);
+    this.longitude = Number.parseFloat(dado.address.geo.lng);
     if (this.usuarioSelecionado === index) {
       this.usuarioSelecionado = -1;
     } else {
